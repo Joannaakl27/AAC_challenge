@@ -1,10 +1,10 @@
+from pydoc import classname
 import dash
 from dash import html, dcc
 
 dash.register_page(__name__, path='/')
 
 layout = html.Div(children=[
-
     html.Div([
         html.Div(
             [
@@ -60,5 +60,5 @@ layout = html.Div(children=[
                       'flex-direction': 'column',
                       'align-items': 'center',
                       'justify-content': 'center',
-                      'margin-top': '15vh'
+
                   })

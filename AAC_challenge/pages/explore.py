@@ -37,6 +37,7 @@ layout = html.Div(children=[
 def render_tab_content(tab_value, data):
     if tab_value == 'cats':
         df = pd.DataFrame(data)
+
         return html.Div(children = [
                 html.Div([
                         dcc.Graph(figure = plots.get_outcome_timeseries(df), className = 'timeseries-plot'),
@@ -68,3 +69,4 @@ def update_mapbox(data, value1, value2):
     else:
         df = df[(df['intake_condition'] == value2) & (df['intake_type'] == value1)]
     return plots.get_mapbox(df)
+
