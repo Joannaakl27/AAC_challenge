@@ -37,6 +37,15 @@ def get_outcome_weekday_histogram(df):
 
 def get_has_name_histogram(df):
     fig = px.histogram(df, x = 'outcome_type', color = 'has_name')
+    fig.update_xaxes(title = 'Outcome type')
+    fig.update_yaxes(title = 'Count')
+    fig.update_layout(legend={'title_text':'Has a name'}, title = 'Named vs unamed cats', title_x = 0.5)
+    newnames = {'0':'No', '1': 'Yes'}
+    fig.for_each_trace(lambda t: t.update(name = newnames[t.name],
+                                        legendgroup = newnames[t.name],
+                                        hovertemplate = t.hovertemplate.replace(t.name, newnames[t.name])
+                                        )
+    )
     return fig
 
 def get_outcome_timeseries(df):
@@ -44,8 +53,9 @@ def get_outcome_timeseries(df):
     outcome_date['outcome_year_month'] = pd.to_datetime(outcome_date['outcome_year_month'])
     outcome_date = outcome_date.sort_values('outcome_year_month', ascending=True)
     fig = px.line(outcome_date, x = 'outcome_year_month', y = 'sex', color = 'outcome_type')
-    fig.update_yaxes(title = 'number of outcomes')
-    fig.update_xaxes()
+    fig.update_yaxes(title = 'Number of outcomes')
+    fig.update_xaxes(title = '')
+    fig.update_layout(legend={'title_text':'Outcome type'}, title = 'Outcomes through time', title_x = 0.5)
     return fig
 
 def get_top_breeds_pie(df, adoptions_only = False):
@@ -66,15 +76,17 @@ def get_mapbox(df):
             mode='markers',
             marker=dict(
                 size=3,
-                opacity=0.2
+                opacity=0.5
             )
         )]
 
-    return dcc.Graph(figure={
-        'data':
-        locations,
-        'layout':
-        go.Layout(
+
+    return dcc.Graph(id = 'mapbox', figure = {
+        'data': locations,
+        'layout': go.Layout(
+            width = 525,
+            height = 495,
+
             hovermode='closest',
             margin=dict(l=0, r=0, t=0, b=0),
             mapbox=dict(accesstoken=MAPBOX_TOKEN,
@@ -84,6 +96,7 @@ def get_mapbox(df):
                         pitch=0,
                         zoom=10),
         )
+
     },
                      style={
                          'order': '2',
