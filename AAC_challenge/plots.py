@@ -70,23 +70,24 @@ def get_mapbox(df):
             )
         )]
 
-    return dcc.Graph(figure = {
-        'data': locations,
-        'layout': go.Layout(
-            width = 525,
-            height = 495,
+    return dcc.Graph(figure={
+        'data':
+        locations,
+        'layout':
+        go.Layout(
             hovermode='closest',
-            margin = dict(l = 0, r = 0, t = 0, b = 0),
-            mapbox=dict(
-                accesstoken= MAPBOX_TOKEN,
-                bearing=0,
-                style='outdoors',
-                center= dict(
-                lat=30.26,
-                lon=-97.73
-                ),
-                pitch=0,
-                zoom=10
-            ),
+            margin=dict(l=0, r=0, t=0, b=0),
+            mapbox=dict(accesstoken=MAPBOX_TOKEN,
+                        bearing=0,
+                        style='outdoors',
+                        center=dict(lat=30.26, lon=-97.73),
+                        pitch=0,
+                        zoom=10),
         )
-    }, style = {'order': '2', 'margin-left': '5vw'})
+    },
+                     style={
+                         'order': '2',
+                         'margin-left': '5vw',
+                         'width': '50%',
+                         'height': '70%'
+                     })

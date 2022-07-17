@@ -14,6 +14,12 @@ app = dash.Dash(
 
 app.title = "AAC Dashboard"
 
+app.css.append_css({
+    'external_url':
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+})
+
+
 app.layout = html.Div([
     dbc.Navbar(
         dbc.Container([
@@ -41,7 +47,7 @@ app.layout = html.Div([
                     ],
                     nav=True,
                     in_navbar=True,
-                    label="More",
+                    label="☰",
                 ),
             ], ),
         ])),
