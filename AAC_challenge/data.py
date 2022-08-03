@@ -1,10 +1,7 @@
 import pandas as pd
-import requests
 from AAC_challenge import utils
 
 from sklearn.preprocessing import OneHotEncoder
-
-API_KEY = ''
 
 def load_csv(dataset):
     """params: 
@@ -121,16 +118,6 @@ def merge_intakes_outcomes():
     merged_df.drop(columns=['coat', 'color', 'breed', 'main_color'], inplace=True)
     merged_df['found_location'] = utils.format_address(merged_df['found_location'])
     return merged_df
-
-def get_lat_lon_from_address(address):
-    url = f'https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={API_KEY}'
-    response = requests.get(url)
-    location = response.json()
-    if location['status'] == 'OK':
-        lat, lon = location['results'][0]['geometry']['location']['lat'], location['results'][0]['geometry']['location']['lng']
-    else:
-        lat, lon = 0, 0
-    return lat, lon
 
 def get_X_y():
     cat_df = merge_intakes_outcomes()

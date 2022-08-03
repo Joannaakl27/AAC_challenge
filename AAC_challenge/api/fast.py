@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 import pandas as pd
 import pickle
-from AAC_challenge import data
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()

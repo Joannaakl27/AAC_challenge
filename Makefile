@@ -59,3 +59,7 @@ pypi:
 # ----------------------------------
 run_api:
 	uvicorn api.fast:app --reload  # load web server with code autoreload
+
+reinstall_package:
+	@pip uninstall -y AAC_challenge || :
+	@pip install -e .
