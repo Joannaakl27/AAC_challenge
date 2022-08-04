@@ -1,11 +1,6 @@
 import pandas as pd
-from AAC_challenge import utils
-import os
-
-from dash import dcc
 
 import plotly.express as px
-import plotly.graph_objects as go
 
 
 def get_outcome_age_histogram(df, adoptions_only=False):
