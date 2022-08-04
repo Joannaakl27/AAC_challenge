@@ -58,7 +58,7 @@ def get_top_breeds_pie(df, adoptions_only = False):
     return fig
 
 def get_map_box(df):
-    px.set_mapbox_access_token(open(".mapbox_token").read())
+    px.set_mapbox_access_token(MAPBOX_TOKEN)
     fig = px.scatter_mapbox(df, lat="lat", lon="lon", center = {'lat': 30.266666, 'lon': -97.733330},
                             zoom=10, opacity = 0.3,
                             mapbox_style= 'outdoors', width = 800, height = 700)
