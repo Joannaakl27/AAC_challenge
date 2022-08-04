@@ -31,7 +31,6 @@ termcolor
 # app
 dash
 dash_bootstrap_components
-AAC_challenge
 requests
 plotly
 numpy
