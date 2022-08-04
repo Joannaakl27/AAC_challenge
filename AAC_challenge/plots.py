@@ -7,13 +7,6 @@ from dash import dcc
 import plotly.express as px
 import plotly.graph_objects as go
 
-"""Load configuration from .ini file."""
-import configparser
-
-# Read local file `config.ini`.
-config = configparser.ConfigParser()
-config.read('../config.ini')
-MAPBOX_TOKEN = config['mapbox']['token']
 
 def get_outcome_age_histogram(df, adoptions_only=False):
     if adoptions_only==True:
@@ -68,38 +61,6 @@ def get_top_breeds_pie(df, adoptions_only = False):
     #df['top_breeds'] = df.breed.apply(utils.map_top_breeds)
     fig = px.pie(df.groupby('top_breeds', as_index=False).count().sort_values('sex', ascending=False), values='sex', names='top_breeds', title=title)
     return fig
-
-def get_mapbox(df):
-    locations = [go.Scattermapbox(
-            lat=df.lat,
-            lon=df.lon,
-            mode='markers',
-            marker=dict(
-                size=3,
-                opacity=0.5
-            )
-        )]
-
-    return dcc.Graph(id = 'mapbox', figure = {
-        'data': locations,
-        'layout': go.Layout(
-            width = 525,
-            height = 495,
-            hovermode='closest',
-            margin = dict(l = 0, r = 0, t = 0, b = 0),
-            mapbox=dict(
-                accesstoken= MAPBOX_TOKEN,
-                bearing=0,
-                style='outdoors',
-                center= dict(
-                lat=30.26,
-                lon=-97.73
-                ),
-                pitch=0,
-                zoom=10
-            ),
-        )
-    }, style = {'order': '2'})
 
 def get_map_box(df):
     px.set_mapbox_access_token(open(".mapbox_token").read())
