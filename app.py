@@ -55,7 +55,7 @@ app.layout = html.Div([
     dash.page_container
 ])
 
-merged_with_locations = utils.read_json_data('../raw_data/merged_with_locations.json')
+merged_with_locations = utils.read_json_data('raw_data/merged_with_locations.json')
 data = pd.DataFrame(merged_with_locations)
 
 # Runs the app ------------------------------------------------------------
