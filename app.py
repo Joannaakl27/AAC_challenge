@@ -31,7 +31,7 @@ app.layout = html.Div([
                 href="https://www.austintexas.gov/austin-animal-center",
                 style={"textDecoration": "none"},
             ),
-            html.P('AAC Data Explorer', style = {'margin-left': '-860px', 'margin-top': '15px', 'font-weight': 'bold', 'font-size': '20px', 'font-family': 'Arial, sans serif'}),
+            html.P('AAC Data Explorer', style = {'margin-left': '-58vw', 'margin-top': '15px', 'font-weight': 'bold', 'font-size': '20px', 'font-family': 'Arial, sans serif'}),
             
             html.Div([
                 dbc.DropdownMenu(
