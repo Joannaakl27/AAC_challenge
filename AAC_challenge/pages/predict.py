@@ -201,8 +201,7 @@ def get_predictions(n_clicks, sex, has_name, intake_age_days, sterilized_intake,
         url_address = 'https://nominatim.openstreetmap.org/search?' 
         response = requests.get(url_address, params = {'q' : address, 'format':'json'}).json()
         lat, lon = response[0]['lat'], response[0]['lon']
-        url = f"http://127.0.0.1:8000/predict?sex={sex}&coat_pattern={coat_pattern}&has_name={has_name}&breed={breed}&coat={coat}&intake_type={intake_type}&intake_condition={intake_condition}&intake_age_days={intake_age_days}&sterilized_intake={sterilized_intake}&days_spent_at_shelter={days_spent_at_shelter}&lat={lat}&lon={lon}"
-        # https://aac-challenge-123.herokuapp.com/predict?sex=male&coat_pattern=agouti&has_name=yes&breed=siamese&coat=black&intake_type=stray&intake_condition=normal&intake_age_days=120&sterilized_intake=yes&days_spent_at_shelter=0&lat=30.267153&lon=-97.743060
+        url = f"https://aac-challenge-123.herokuapp.com/predict?sex={sex}&coat_pattern={coat_pattern}&has_name={has_name}&breed={breed}&coat={coat}&intake_type={intake_type}&intake_condition={intake_condition}&intake_age_days={intake_age_days}&sterilized_intake={sterilized_intake}&days_spent_at_shelter={days_spent_at_shelter}&lat={lat}&lon={lon}"
         results = requests.get(url).json()
         prediction = results['prediction']
         #proba_0 = results['prob_0']
