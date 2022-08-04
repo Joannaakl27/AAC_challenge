@@ -11,7 +11,7 @@ dash.register_page(__name__)
 layout = html.Div(children=[
     html.H1(children='Explore data', style = {'color': 'black'}),
 
-    dcc.Store(id='store-data', data = utils.read_json_data('raw_data/merged_with_locations.json'), storage_type = 'memory'),
+    dcc.Store(id='store-data', data = utils.read_json_data('/raw_data/merged_with_locations.json'), storage_type = 'memory'),
 
     dbc.Card(
     [
