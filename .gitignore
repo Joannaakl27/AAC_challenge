@@ -8,3 +8,4 @@ raw_data/
 .env
 config.ini
 .mapbox_token
+notebooks
