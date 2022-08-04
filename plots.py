@@ -1,7 +1,9 @@
 import pandas as pd
+import os
 
 import plotly.express as px
 
+MAPBOX_TOKEN = os.environ.get('MAPBOX_TOKEN')
 
 def get_outcome_age_histogram(df, adoptions_only=False):
     if adoptions_only==True:
