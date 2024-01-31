@@ -39,7 +39,7 @@ app.layout = html.Div([
                         dbc.DropdownMenuItem("Home", href="/"),
                         dbc.DropdownMenuItem("Explore", href="/explore"),
                         dbc.DropdownMenuItem("Predict", href='/predict'),
-                        dbc.DropdownMenuItem("Documentation", href='https://jhupiterz.notion.site/AAC-Data-Explorer-Documentation-af73e934772b4058a293e53b0d96728c', target = "_blank")
+                        dbc.DropdownMenuItem("Documentation", href='https://joannaakl27.notion.site/AAC-Data-Explorer-Docs-30bff26402d340c8a55d170773c1e205?pvs=4', target = "_blank")
                     ],
                     nav=True,
                     in_navbar=True,
